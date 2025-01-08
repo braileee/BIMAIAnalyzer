@@ -13,9 +13,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="5.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Prism.Core" Version="8.1.97" />
 		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+		<PackageReference Include="RestSharp" Version="112.1.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(Configuration)' == 'Civil3D2025Debug' Or '$(Configuration)'=='Civil3D2025Release'">

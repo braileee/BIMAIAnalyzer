@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BIMAIAnalyzer.Models
+{
+    public class ElementCollection
+    {
+        private ElementCollection()
+        {
+        }
+
+        public List<PolylineWrapper> PolylineWrappers { get; set; } = [];
+        public List<Polyline3dWrapper> Polyline3dWrappers { get; set; } = [];
+        public List<Solid3dWrapper> Solid3dWrappers { get; private set; } = [];
+
+        public List<BlockReferenceWrapper> BlockReferenceWrappers { get; set; } = [];
+
+        public static ElementCollection Create()
+        {
+            return new ElementCollection
+            {
+                PolylineWrappers = PolylineWrapper.Create(),
+                Polyline3dWrappers = Polyline3dWrapper.Create(),
+                Solid3dWrappers = Solid3dWrapper.Create(),
+                BlockReferenceWrappers = BlockReferenceWrapper.Create()
+            };
+        }
+    }
+}
