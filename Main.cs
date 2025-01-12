@@ -5,6 +5,8 @@ using BIMAIAnalyzer.Models;
 using BIMAIAnalyzer.Utils;
 using BIMAIAnalyzer.Views;
 using Microsoft.Extensions.Configuration;
+using System.IO;
+using System.Reflection;
 
 namespace BIMAIAnalyzer
 {
@@ -17,12 +19,17 @@ namespace BIMAIAnalyzer
         {
             try
             {
-                var config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
+                IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
                 ApiKey = config["apikey"];
 
-                var bootstrapper = new Bootstrapper();
-                var container = bootstrapper.Bootstrap();
-                var mainView = container.Resolve<MainView>();
+                string assemblyDirectory = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Main)).Location);
+                string mahappsMetroDllPath = Path.Combine(assemblyDirectory, "MahApps.Metro.dll");
+
+                Assembly assembly = Assembly.LoadFrom(mahappsMetroDllPath);
+
+                Bootstrapper bootstrapper = new Bootstrapper();
+                IContainer container = bootstrapper.Bootstrap();
+                MainView mainView = container.Resolve<MainView>();
                 Application.ShowModelessWindow(mainView);
             }
             catch (System.Exception exception)

@@ -17,6 +17,7 @@ namespace BIMAIAnalyzer.Models
         public List<Solid3dWrapper> Solid3dWrappers { get; private set; } = [];
 
         public List<BlockReferenceWrapper> BlockReferenceWrappers { get; set; } = [];
+        public List<PipeWrapper> Pipes { get; private set; } = new List<PipeWrapper>();
 
         public static ElementCollection Create()
         {
@@ -25,7 +26,8 @@ namespace BIMAIAnalyzer.Models
                 PolylineWrappers = PolylineWrapper.Create(),
                 Polyline3dWrappers = Polyline3dWrapper.Create(),
                 Solid3dWrappers = Solid3dWrapper.Create(),
-                BlockReferenceWrappers = BlockReferenceWrapper.Create()
+                BlockReferenceWrappers = BlockReferenceWrapper.Create(),
+                Pipes = PipeWrapper.Create()
             };
         }
     }

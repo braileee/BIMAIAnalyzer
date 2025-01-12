@@ -4,23 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BIMAIAnalyzer.Views"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"     
              mc:Ignorable="d" 
-             Height="200"
-             Width="400">
+             Width="400"
+        SizeToContent="Height"
+             Title="BIM AI Analyzer">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <StackPanel Margin="5">
-        <Label Content="Input"/>
+        <Label Content="User Input" 
+               HorizontalAlignment="Left"
+               Margin="0 5"/>
         <TextBox Text="{Binding Input}"
                  TextWrapping="Wrap"
                  VerticalScrollBarVisibility="Auto"
                  AcceptsReturn="True"/>
 
-        <Button Content="Send Request" Command="{Binding ProcessInputCommand}"
-                Margin="0 5"/>
+        <Button Content="Send" 
+                Margin="0 5"
+                Command="{Binding ProcessInputCommand}"/>
 
-        <Label Content="Output"/>
+        <Label Content="AI Output"
+               HorizontalAlignment="Left"
+               Margin="0 5"/>
         <TextBox Text="{Binding Output}" 
-                 ScrollViewer.CanContentScroll="True"
-                 ScrollViewer.VerticalScrollBarVisibility="Visible"/>
-
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 Height="300"
+                 VerticalScrollBarVisibility="Auto"/>
     </StackPanel>
+
 </Window>

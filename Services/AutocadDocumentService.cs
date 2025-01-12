@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIMAIAnalyzer
+namespace BIMAIAnalyzer.Services
 {
     public static class AutocadDocumentService
     {
