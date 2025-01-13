@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIMAIAnalyzer.Models
+namespace BIMAIAnalyzer.Models.Json
 {
-    public class Part
+    public class Candidate
     {
-        public string Text { get; set; }
+        public Content Content { get; set; }
     }
 }

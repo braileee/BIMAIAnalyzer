@@ -23,7 +23,7 @@ namespace BIMAIAnalyzer.Utils
 
                 BlockTableRecord modelspace = (BlockTableRecord)transaction.GetObject(blockModelSpaceId, OpenMode.ForRead, false, true);
 
-                List<ObjectId> objectIds = modelspace.Cast<ObjectId>().Where(id => id.ObjectClass.DxfName == RXObject.GetClass(typeof(T)).DxfName).ToList();
+                List<ObjectId> objectIds = modelspace.Cast<ObjectId>().Where(id => id.ObjectClass.Name == RXObject.GetClass(typeof(T)).Name).ToList();
 
                 foreach (ObjectId objectId in objectIds)
                 {

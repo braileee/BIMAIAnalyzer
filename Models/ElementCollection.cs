@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autodesk.AutoCAD.DatabaseServices;
+using BIMAIAnalyzer.Models.Wrappers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +17,8 @@ namespace BIMAIAnalyzer.Models
         public List<PolylineWrapper> PolylineWrappers { get; set; } = [];
         public List<Polyline3dWrapper> Polyline3dWrappers { get; set; } = [];
         public List<Solid3dWrapper> Solid3dWrappers { get; private set; } = [];
-
         public List<BlockReferenceWrapper> BlockReferenceWrappers { get; set; } = [];
-        public List<PipeWrapper> Pipes { get; private set; } = new List<PipeWrapper>();
+        public List<PipeWrapper> Pipes { get; private set; } = [];
 
         public static ElementCollection Create()
         {

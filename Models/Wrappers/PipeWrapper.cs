@@ -1,6 +1,6 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.Geometry;
+﻿using Autodesk.AutoCAD.Geometry;
 using Autodesk.Civil.DatabaseServices;
+using AcadDb = Autodesk.AutoCAD.DatabaseServices;
 using BIMAIAnalyzer.Utils;
 using Newtonsoft.Json;
 using System;
@@ -9,20 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIMAIAnalyzer.Models
+namespace BIMAIAnalyzer.Models.Wrappers
 {
-    public class PipeWrapper
+    public class PipeWrapper : BaseElementWrapper<PipeWrapper>
     {
+        public PipeWrapper(AcadDb.Entity entity) : base(entity)
+        {
+            Model = entity as Pipe;
+        }
+
         [JsonIgnore]
         public Pipe Model { get; set; }
-
-        public string Layer
-        {
-            get
-            {
-                return Model?.Layer;
-            }
-        }
 
         public string NetworkName
         {
@@ -37,14 +34,6 @@ namespace BIMAIAnalyzer.Models
             get
             {
                 return Model?.Name;
-            }
-        }
-
-        public string Type
-        {
-            get
-            {
-                return Model?.GetType().Name;
             }
         }
 
@@ -82,19 +71,7 @@ namespace BIMAIAnalyzer.Models
 
         public static List<PipeWrapper> Create()
         {
-            List<Pipe> pipes = ElementUtils.GetFromModel<Pipe>();
-
-            List<PipeWrapper> pipeWrappers = new List<PipeWrapper>();
-
-            foreach (Pipe pipe in pipes)
-            {
-                pipeWrappers.Add(new PipeWrapper
-                {
-                    Model = pipe
-                });
-            }
-
-            return pipeWrappers;
+            return Create<Pipe>();
         }
     }
 }

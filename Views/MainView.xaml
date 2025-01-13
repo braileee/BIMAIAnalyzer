@@ -23,24 +23,29 @@
     <StackPanel Margin="5">
         <Label Content="User Input" 
                HorizontalAlignment="Left"
-               Margin="0 5"/>
+               Margin="0 5"
+               FontSize="16"/>
         <TextBox Text="{Binding Input}"
                  TextWrapping="Wrap"
                  VerticalScrollBarVisibility="Auto"
-                 AcceptsReturn="True"/>
+                 AcceptsReturn="True"
+                 FontSize="16"/>
 
         <Button Content="Send" 
                 Margin="0 5"
+                FontSize="16"
                 Command="{Binding ProcessInputCommand}"/>
 
         <Label Content="AI Output"
                HorizontalAlignment="Left"
-               Margin="0 5"/>
+               Margin="0 5"
+               FontSize="16"/>
         <TextBox Text="{Binding Output}" 
                  IsReadOnly="True"
                  TextWrapping="Wrap"
                  Height="300"
-                 VerticalScrollBarVisibility="Auto"/>
+                 VerticalScrollBarVisibility="Auto"
+                 FontSize="16"/>
     </StackPanel>
 
 </Window>
