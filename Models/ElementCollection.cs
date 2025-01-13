@@ -1,10 +1,5 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
-using BIMAIAnalyzer.Models.Wrappers;
-using System;
+﻿using BIMAIAnalyzer.Models.Wrappers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BIMAIAnalyzer.Models
 {

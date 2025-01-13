@@ -46,7 +46,7 @@ namespace BIMAIAnalyzer.Models.Wrappers
         {
             List<TAcad> elements = ElementUtils.GetFromModel<TAcad>();
 
-            List<TWrapper> wrappers = new List<TWrapper>();
+            List<TWrapper> wrappers = [];
 
             foreach (TAcad element in elements)
             {

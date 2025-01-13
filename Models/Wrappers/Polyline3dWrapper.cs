@@ -27,6 +27,32 @@ namespace BIMAIAnalyzer.Models.Wrappers
             }
         }
 
+        public List<Point3d> Points
+        {
+            get
+            {
+                List<Point3d> points = new List<Point3d>();
+
+                using (Transaction transaction = AutocadDocumentService.TransactionManager.StartTransaction())
+                {
+                    foreach (ObjectId objectId in Model)
+                    {
+                        object polylineObject = transaction.GetObject(objectId, OpenMode.ForRead, false, true);
+
+                        if (polylineObject is PolylineVertex3d vertex)
+                        {
+                            Point3d point = new Point3d(vertex.Position.X, vertex.Position.Y, vertex.Position.Z);
+                            points.Add(point);
+                        }
+                    }
+
+                    transaction.Commit();
+                }
+
+                return points;
+            }
+        }
+
         public static List<Polyline3dWrapper> Create()
         {
             return Create<Polyline3d>();
