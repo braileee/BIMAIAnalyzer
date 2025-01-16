@@ -5,8 +5,12 @@ using BIMAIAnalyzer.Models;
 using BIMAIAnalyzer.Utils;
 using BIMAIAnalyzer.Views;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Windows.Documents;
 
 namespace BIMAIAnalyzer
 {
@@ -25,7 +29,7 @@ namespace BIMAIAnalyzer
                 string assemblyDirectory = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Main)).Location);
                 string mahappsMetroDllPath = Path.Combine(assemblyDirectory, "MahApps.Metro.dll");
 
-                Assembly assembly = Assembly.LoadFrom(mahappsMetroDllPath);
+                SystemAssemblyUtils.LoadIfNotLoaded(mahappsMetroDllPath);
 
                 Bootstrapper bootstrapper = new Bootstrapper();
                 IContainer container = bootstrapper.Bootstrap();

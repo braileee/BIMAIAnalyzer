@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using System;
 using BIMAIAnalyzer.Models;
 using Newtonsoft.Json;
+using System.Windows;
 
 namespace BIMAIAnalyzer.ViewModels
 {
@@ -28,8 +29,9 @@ namespace BIMAIAnalyzer.ViewModels
                 string inputWithElementData = $"{Input}{Environment.NewLine}{elementJsonContent}";
                 Output = promptRequest.GetResponse(inputWithElementData);
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                MessageBox.Show($"{exception.Message}", "Error");
             }
         }
 

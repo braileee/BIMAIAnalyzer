@@ -1,11 +1,7 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
-using BIMAIAnalyzer.Utils;
+using Autodesk.AutoCAD.Geometry;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BIMAIAnalyzer.Models.Wrappers
 {
@@ -32,6 +28,14 @@ namespace BIMAIAnalyzer.Models.Wrappers
             get
             {
                 return Model.Area;
+            }
+        }
+
+        public Point3d Centroid
+        {
+            get
+            {
+                return Model.MassProperties.Centroid;
             }
         }
 

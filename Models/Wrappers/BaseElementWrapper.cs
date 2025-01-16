@@ -1,11 +1,8 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.GraphicsSystem;
 using BIMAIAnalyzer.Utils;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BIMAIAnalyzer.Models.Wrappers
 {
@@ -16,6 +13,7 @@ namespace BIMAIAnalyzer.Models.Wrappers
             Entity = entity;
         }
 
+        [JsonIgnore]
         public Entity Entity { get; }
 
         public string Layer

@@ -69,6 +69,14 @@ namespace BIMAIAnalyzer.Models.Wrappers
             }
         }
 
+        public double Slope
+        {
+            get
+            {
+                return Model.Slope;
+            }
+        }
+
         public static List<PipeWrapper> Create()
         {
             return Create<Pipe>();
