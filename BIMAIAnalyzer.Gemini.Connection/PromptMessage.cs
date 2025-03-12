@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BIMAIAnalyzer.Gemini.Connection.Json;
+using System.Text.RegularExpressions;
 
 namespace BIMAIAnalyzer.Gemini.Connection
 {
-    public class PromptRequest
+    public class PromptMessage
     {
-        public PromptRequest(string geminiUrl, string apiKey)
+        public PromptMessage(string geminiUrl, string apiKey)
         {
             GeminiUrl = geminiUrl;
             ApiKey = apiKey;
@@ -21,7 +22,7 @@ namespace BIMAIAnalyzer.Gemini.Connection
         public string GeminiUrl { get; }
         public string ApiKey { get; }
 
-        public string GetResponse(string input)
+        public ResponseMessage GetResponse(string input)
         {
             RestClient restClient = new RestClient();
             RestRequest request = new RestRequest(GeminiUrl, Method.Post);
@@ -58,17 +59,27 @@ namespace BIMAIAnalyzer.Gemini.Connection
 
             string output = string.Empty;
 
+            string code = string.Empty;
+
             if (restResponse.IsSuccessStatusCode)
             {
                 JsonOutput jsonOutput = JsonConvert.DeserializeObject<JsonOutput>(restResponse.Content);
                 output = string.Join(Environment.NewLine, jsonOutput.Candidates.SelectMany(candidate => candidate.Content.Parts.Select(item => item.Text)));
+
+                string pattern = @"```csharp\s*(.*?)\s*```";
+                Match match = Regex.Match(output, pattern, RegexOptions.Singleline);
+
+                if (match.Success)
+                {
+                    code = match.Value.Replace("```csharp", "").Replace("```", "").Trim();
+                }
             }
             else
             {
                 output = "Error";
             }
 
-            return output;
+            return new ResponseMessage { Code = code, Output = output };
         }
     }
 }

@@ -18,7 +18,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <TabControl>
 
-    <local:AnalyzeWindow DataContext="{Binding AnalyzeViewViewModel}"/>
+        <TabItem Header="Analyze">
+            <local:AnalyzeWindow DataContext="{Binding AnalyzeViewViewModel}"/>
+        </TabItem>
 
+        <TabItem Header="Tune">
+            <local:TuneWindow DataContext="{Binding TuneViewViewModel}"/>
+        </TabItem>
+    </TabControl>
 </Window>

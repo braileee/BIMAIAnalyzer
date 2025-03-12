@@ -12,6 +12,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         AnalyzeViewViewModel analyzeViewViewModel = new AnalyzeViewViewModel();
-        DataContext = new MainViewViewModel(analyzeViewViewModel);
+        TuneViewViewModel tuneViewViewModel = new TuneViewViewModel();
+        DataContext = new MainViewViewModel(analyzeViewViewModel, tuneViewViewModel);
     }
 }

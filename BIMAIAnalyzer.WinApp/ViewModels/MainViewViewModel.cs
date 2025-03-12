@@ -15,11 +15,13 @@ namespace BIMAIAnalyzer.WinApp.ViewModels
 {
     public class MainViewViewModel : BindableBase
     {
-        public MainViewViewModel(AnalyzeViewViewModel analyzeViewViewModel)
+        public MainViewViewModel(AnalyzeViewViewModel analyzeViewViewModel, TuneViewViewModel tuneViewViewModel)
         {
             AnalyzeViewViewModel = analyzeViewViewModel;
+            TuneViewViewModel = tuneViewViewModel;
         }
 
         public AnalyzeViewViewModel AnalyzeViewViewModel { get; }
+        public TuneViewViewModel TuneViewViewModel { get; }
     }
 }

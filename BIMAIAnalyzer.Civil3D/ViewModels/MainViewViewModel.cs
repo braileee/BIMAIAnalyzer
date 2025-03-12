@@ -34,9 +34,11 @@ namespace BIMAIAnalyzer.Civil3D.ViewModels
                 IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
                 string apiKey = config["apikey"];
 
-                PromptRequest promptRequest = new PromptRequest(Constants.GeminiUrl, apiKey);
+                PromptMessage promptRequest = new PromptMessage(Constants.GeminiUrlFineTune, apiKey);
                 string inputWithElementData = $"{Input}{Environment.NewLine}{elementJsonContent}";
-                Output = promptRequest.GetResponse(inputWithElementData);
+                ResponseMessage promptResponse = promptRequest.GetResponse(inputWithElementData);
+
+                Output = promptResponse.Output;
             }
             catch (Exception)
             {

@@ -29,7 +29,8 @@ namespace BIMAIAnalyzer.WinApp.ViewModels
                 IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<MainViewViewModel>().Build();
                 string apiKey = config["apikey"];
 
-                Output = promptRequest.GetResponse(Input);
+                PromptFineTune promptFineTune = new PromptFineTune(Constants.GeminiUrlFineTune, apiKey);
+                Output = promptFineTune.GetResponse(Input);
             }
             catch (Exception)
             {
