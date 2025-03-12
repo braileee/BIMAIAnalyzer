@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Civil3DDlls", "Civil3DDlls", "{F37C504F-46EA-46C9-8F04-4CDE77F6D2EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2025", "2025", "{C85E9E19-207F-4F74-9D80-6B4959039D72}"
+	ProjectSection(SolutionItems) = preProject
+		Civil3DDlls\2025\accoremgd.dll = Civil3DDlls\2025\accoremgd.dll
+		Civil3DDlls\2025\acdbmgd.dll = Civil3DDlls\2025\acdbmgd.dll
+		Civil3DDlls\2025\acmgd.dll = Civil3DDlls\2025\acmgd.dll
+		Civil3DDlls\2025\AecBaseMgd.dll = Civil3DDlls\2025\AecBaseMgd.dll
+		Civil3DDlls\2025\AeccDbMgd.dll = Civil3DDlls\2025\AeccDbMgd.dll
+		Civil3DDlls\2025\AecPropDataMgd.dll = Civil3DDlls\2025\AecPropDataMgd.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMAIAnalyzer.Civil3D", "BIMAIAnalyzer.Civil3D\BIMAIAnalyzer.Civil3D.csproj", "{1C75F2CC-4489-4AEC-BBAC-8B99DD38675F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMAIAnalyzer.CommandsExamples", "BIMAIAnalyzer.CommandsExamples\BIMAIAnalyzer.CommandsExamples.csproj", "{1DBECDC9-9A02-46B8-8E9A-1D84620C9B4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMAIAnalyzer.Core", "BIMAIAnalyzer.Core\BIMAIAnalyzer.Core.csproj", "{49E1306F-B364-4F94-9C2C-326A2B35E792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMAIAnalyzer.Gemini.Connection", "BIMAIAnalyzer.Gemini.Connection\BIMAIAnalyzer.Gemini.Connection.csproj", "{EF14F50D-2B60-4288-89A6-6D884FDEFEDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMAIAnalyzer.WinApp", "BIMAIAnalyzer.WinApp\BIMAIAnalyzer.WinApp.csproj", "{9484A916-B379-46D1-8738-D55D99FF1B29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Civil3D2025Debug|Any CPU = Civil3D2025Debug|Any CPU
+		Civil3D2025Release|Any CPU = Civil3D2025Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C75F2CC-4489-4AEC-BBAC-8B99DD38675F}.Civil3D2025Debug|Any CPU.ActiveCfg = Civil3D2025Debug|Any CPU
+		{1C75F2CC-4489-4AEC-BBAC-8B99DD38675F}.Civil3D2025Debug|Any CPU.Build.0 = Civil3D2025Debug|Any CPU
+		{1C75F2CC-4489-4AEC-BBAC-8B99DD38675F}.Civil3D2025Release|Any CPU.ActiveCfg = Civil3D2025Release|Any CPU
+		{1C75F2CC-4489-4AEC-BBAC-8B99DD38675F}.Civil3D2025Release|Any CPU.Build.0 = Civil3D2025Release|Any CPU
+		{1DBECDC9-9A02-46B8-8E9A-1D84620C9B4C}.Civil3D2025Debug|Any CPU.ActiveCfg = Civil3D2025Debug|Any CPU
+		{1DBECDC9-9A02-46B8-8E9A-1D84620C9B4C}.Civil3D2025Debug|Any CPU.Build.0 = Civil3D2025Debug|Any CPU
+		{1DBECDC9-9A02-46B8-8E9A-1D84620C9B4C}.Civil3D2025Release|Any CPU.ActiveCfg = Civil3D2025Release|Any CPU
+		{1DBECDC9-9A02-46B8-8E9A-1D84620C9B4C}.Civil3D2025Release|Any CPU.Build.0 = Civil3D2025Release|Any CPU
+		{49E1306F-B364-4F94-9C2C-326A2B35E792}.Civil3D2025Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E1306F-B364-4F94-9C2C-326A2B35E792}.Civil3D2025Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E1306F-B364-4F94-9C2C-326A2B35E792}.Civil3D2025Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E1306F-B364-4F94-9C2C-326A2B35E792}.Civil3D2025Release|Any CPU.Build.0 = Release|Any CPU
+		{EF14F50D-2B60-4288-89A6-6D884FDEFEDC}.Civil3D2025Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF14F50D-2B60-4288-89A6-6D884FDEFEDC}.Civil3D2025Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF14F50D-2B60-4288-89A6-6D884FDEFEDC}.Civil3D2025Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF14F50D-2B60-4288-89A6-6D884FDEFEDC}.Civil3D2025Release|Any CPU.Build.0 = Release|Any CPU
+		{9484A916-B379-46D1-8738-D55D99FF1B29}.Civil3D2025Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9484A916-B379-46D1-8738-D55D99FF1B29}.Civil3D2025Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9484A916-B379-46D1-8738-D55D99FF1B29}.Civil3D2025Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9484A916-B379-46D1-8738-D55D99FF1B29}.Civil3D2025Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C85E9E19-207F-4F74-9D80-6B4959039D72} = {F37C504F-46EA-46C9-8F04-4CDE77F6D2EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E08B863-6D97-45A4-A8F6-805DEB76190B}
+	EndGlobalSection
+EndGlobal

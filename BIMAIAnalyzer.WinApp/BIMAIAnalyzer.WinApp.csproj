@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<UserSecretsId>e46ddd85-955d-4e1d-a1f7-f39e43c6b778</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="5.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Prism.Core" Version="8.1.97" />
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+		<PackageReference Include="RestSharp" Version="112.1.0" />
+		<PackageReference Include="MahApps.Metro" Version="2.0.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BIMAIAnalyzer.Core\BIMAIAnalyzer.Core.csproj" />
+		<ProjectReference Include="..\BIMAIAnalyzer.Gemini.Connection\BIMAIAnalyzer.Gemini.Connection.csproj" />
+	</ItemGroup>
+
+</Project>

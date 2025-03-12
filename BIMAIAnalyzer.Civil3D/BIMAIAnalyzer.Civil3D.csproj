@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Configurations>Civil3D2025Debug;Civil3D2025Release</Configurations>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<UserSecretsId>e46ddd85-955d-4e1d-a1f7-f39e43c6b778</UserSecretsId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Civil3D2025Debug' Or '$(Configuration)'=='Civil3D2025Release'">
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="5.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Prism.Core" Version="8.1.97" />
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+		<PackageReference Include="RestSharp" Version="112.1.0" />
+		<PackageReference Include="MahApps.Metro" Version="2.0.0.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Civil3D2025Debug' Or '$(Configuration)'=='Civil3D2025Release'">
+		<Reference Include="accoremgd">
+			<HintPath>..\Civil3DDlls\2025\accoremgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="acdbmgd">
+			<HintPath>..\Civil3DDlls\2025\acdbmgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="acmgd">
+			<HintPath>..\Civil3DDlls\2025\acmgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="AecBaseMgd">
+			<HintPath>..\Civil3DDlls\2025\AecBaseMgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="AeccDbMgd">
+			<HintPath>..\Civil3DDlls\2025\AeccDbMgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="AecPropDataMgd">
+			<HintPath>..\Civil3DDlls\2025\AecPropDataMgd.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BIMAIAnalyzer.Core\BIMAIAnalyzer.Core.csproj" />
+	  <ProjectReference Include="..\BIMAIAnalyzer.Gemini.Connection\BIMAIAnalyzer.Gemini.Connection.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Files\PackageContents.xml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	</Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)\Files\PackageContents.xml&quot; &quot;%25programdata%25\Autodesk\ApplicationPlugins\BIMAIAnalyzer.bundle\&quot; /F /R /Y /I&#xD;&#xA;xcopy &quot;$(TargetDir)*.*&quot; &quot;%25programdata%25\Autodesk\ApplicationPlugins\BIMAIAnalyzer.bundle\2025\Contents\&quot; /F /R /Y /I /E&#xD;&#xA;" />
+	</Target>
+</Project>

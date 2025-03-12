@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0">
+	<CompanyDetails Name="s.pavlovitsky" Email="s.pavlovitsky@gmail.com" />
+
+	<!--Civil 3D 2025-->
+	<Components>
+		<RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R25.0" SeriesMax="R25.0"/>
+
+		<ComponentEntry AppName="BIMAIAnalyzer"
+						AppDescription="BIMAIAnalyzer"
+						ModuleName="./2025/Contents/BIMAIAnalyzer.dll"
+						LoadOnCommandInvocation ="True" LoadOnRequest="True">
+			
+			<Commands GroupName="PSV">
+				<Command Local="BIMAIAnalyzer"
+						 Global="BIMAIAnalyzer"
+						 Description="BIMAIAnalyzer" />
+			</Commands>
+		</ComponentEntry>
+	</Components>
+</ApplicationPackage>

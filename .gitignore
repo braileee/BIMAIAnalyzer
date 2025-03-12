@@ -1,8 +1,6 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
-/obj
-/bin\
 /.vs
-/BIMAIAnalyzer.CommandsExamples/bin/Civil3D2025Debug/net8.0-windows
+*/obj/*
+*/bin/*
