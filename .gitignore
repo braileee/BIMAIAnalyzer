@@ -3,12 +3,6 @@
 ################################################################################
 
 /obj
+/bin\
 /.vs
 /BIMAIAnalyzer.CommandsExamples/bin/Civil3D2025Debug/net8.0-windows
-/BIMAIAnalyzer.CommandsExamples/obj
-/BIMAIAnalyzer.Core/bin/Debug/net8.0
-/BIMAIAnalyzer.Core/obj
-/BIMAIAnalyzer.Gemini.Connection/bin/Debug/net8.0
-/BIMAIAnalyzer.Gemini.Connection/obj
-/BIMAIAnalyzer.WinApp/bin/Debug/net8.0-windows
-/BIMAIAnalyzer.WinApp/obj
