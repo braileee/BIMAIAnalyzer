@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace BIMAIAnalyzer.Utils
+namespace BIMAIAnalyzer.Civil3D.Utils
 {
     public static class MessageBoxUtils
     {

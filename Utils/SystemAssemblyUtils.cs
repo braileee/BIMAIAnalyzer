@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BIMAIAnalyzer.Utils
+namespace BIMAIAnalyzer.Civil3D.Utils
 {
     public static class SystemAssemblyUtils
     {

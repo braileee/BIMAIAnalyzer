@@ -1,11 +1,17 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using System;
-using BIMAIAnalyzer.Models;
 using Newtonsoft.Json;
-using System.Windows;
+using BIMAIAnalyzer.Civil3D.Models;
+using BIMAIAnalyzer.Core;
+using BIMAIAnalyzer.Gemini.Connection;
+using Microsoft.Extensions.Configuration;
+using Autodesk.Civil.ApplicationServices;
+using Autodesk.Civil.DatabaseServices;
+using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.Geometry;
 
-namespace BIMAIAnalyzer.ViewModels
+namespace BIMAIAnalyzer.Civil3D.ViewModels
 {
     public class MainViewViewModel : BindableBase
     {
@@ -25,13 +31,29 @@ namespace BIMAIAnalyzer.ViewModels
 
                 string elementJsonContent = JsonConvert.SerializeObject(elementCollection);
 
-                PromptRequest promptRequest = new PromptRequest(Constants.GeminiUrl, Main.ApiKey);
+                IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
+                string apiKey = config["apikey"];
+
+                PromptRequest promptRequest = new PromptRequest(Constants.GeminiUrl, apiKey);
                 string inputWithElementData = $"{Input}{Environment.NewLine}{elementJsonContent}";
                 Output = promptRequest.GetResponse(inputWithElementData);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                MessageBox.Show($"{exception.Message}", "Error");
+            }
+
+
+            Database database = Autodesk.AutoCAD.ApplicationServices.Core.Application.DocumentManager.MdiActiveDocument.Database;
+            using (Transaction trans = database.TransactionManager.StartTransaction())
+
+            {
+                CogoPointCollection cogoPoints = CivilApplication.ActiveDocument.CogoPoints;
+
+                ObjectId pointId = cogoPoints.Add(new Point3d(x: 1, y: 2, z: 3), useNextPointNumSetting: true);
+                CogoPoint cogoPoint = pointId.GetObject(OpenMode.ForWrite) as CogoPoint;
+                cogoPoint.PointName = "Survey_Base_Point";
+                cogoPoint.RawDescription = "This is Survey Base Point";
+                trans.Commit();
             }
         }
 

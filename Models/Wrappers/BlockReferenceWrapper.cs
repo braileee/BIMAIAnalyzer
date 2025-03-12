@@ -1,11 +1,11 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
-using BIMAIAnalyzer.Utils;
+using BIMAIAnalyzer.Civil3D.Utils;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace BIMAIAnalyzer.Models.Wrappers
+namespace BIMAIAnalyzer.Civil3D.Models.Wrappers
 {
     public class BlockReferenceWrapper : BaseElementWrapper<BlockReferenceWrapper>
     {

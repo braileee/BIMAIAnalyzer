@@ -1,9 +1,9 @@
 ﻿using Autodesk.AutoCAD.ApplicationServices.Core;
 using Autodesk.AutoCAD.Runtime;
 using Autofac;
-using BIMAIAnalyzer.Models;
-using BIMAIAnalyzer.Utils;
-using BIMAIAnalyzer.Views;
+using BIMAIAnalyzer.Civil3D.Models;
+using BIMAIAnalyzer.Civil3D.Utils;
+using BIMAIAnalyzer.Civil3D.Views;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -12,20 +12,16 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Documents;
 
-namespace BIMAIAnalyzer
+namespace BIMAIAnalyzer.Civil3D
 {
     public class Main
     {
-        public static string ApiKey { get; private set; }
 
         [CommandMethod("PSV", "BIMAIAnalyzer", CommandFlags.Modal)]
         public static void Start()
         {
             try
             {
-                IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
-                ApiKey = config["apikey"];
-
                 string assemblyDirectory = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Main)).Location);
                 string mahappsMetroDllPath = Path.Combine(assemblyDirectory, "MahApps.Metro.dll");
 

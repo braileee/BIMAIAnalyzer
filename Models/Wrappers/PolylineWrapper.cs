@@ -1,13 +1,13 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Runtime;
-using BIMAIAnalyzer.Utils;
+using BIMAIAnalyzer.Civil3D.Utils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BIMAIAnalyzer.Models.Wrappers
+namespace BIMAIAnalyzer.Civil3D.Models.Wrappers
 {
     public class PolylineWrapper : BaseElementWrapper<PolylineWrapper>
     {

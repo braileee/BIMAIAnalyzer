@@ -1,15 +1,10 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Runtime;
-using BIMAIAnalyzer.Models;
-using BIMAIAnalyzer.Services;
-using System;
+using BIMAIAnalyzer.Civil3D.Services;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace BIMAIAnalyzer.Utils
+namespace BIMAIAnalyzer.Civil3D.Utils
 {
     public class ElementUtils
     {
@@ -23,7 +18,7 @@ namespace BIMAIAnalyzer.Utils
 
                 BlockTableRecord modelspace = (BlockTableRecord)transaction.GetObject(blockModelSpaceId, OpenMode.ForRead, false, true);
 
-                List<ObjectId> objectIds = modelspace.Cast<ObjectId>().Where(id => id.ObjectClass.Name == RXObject.GetClass(typeof(T)).Name).ToList();
+                List<ObjectId> objectIds = modelspace.Cast<ObjectId>().Where(id => id.ObjectClass.DxfName == RXObject.GetClass(typeof(T)).DxfName).ToList();
 
                 foreach (ObjectId objectId in objectIds)
                 {

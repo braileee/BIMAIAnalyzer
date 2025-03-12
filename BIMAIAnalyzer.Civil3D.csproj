@@ -49,6 +49,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\BIMAIAnalyzer.Core\BIMAIAnalyzer.Core.csproj" />
+	  <ProjectReference Include="..\BIMAIAnalyzer.Gemini.Connection\BIMAIAnalyzer.Gemini.Connection.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Update="Files\PackageContents.xml">
 	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </None>

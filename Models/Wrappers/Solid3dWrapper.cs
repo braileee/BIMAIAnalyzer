@@ -3,7 +3,7 @@ using Autodesk.AutoCAD.Geometry;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace BIMAIAnalyzer.Models.Wrappers
+namespace BIMAIAnalyzer.Civil3D.Models.Wrappers
 {
     public class Solid3dWrapper : BaseElementWrapper<Solid3dWrapper>
     {

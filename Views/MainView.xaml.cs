@@ -1,7 +1,7 @@
-﻿using BIMAIAnalyzer.ViewModels;
+﻿using BIMAIAnalyzer.Civil3D.ViewModels;
 using System.Windows;
 
-namespace BIMAIAnalyzer.Views
+namespace BIMAIAnalyzer.Civil3D.Views
 {
     /// <summary>
     /// Interaction logic for MainView.xaml

@@ -1,7 +1,7 @@
-﻿using BIMAIAnalyzer.Models.Wrappers;
+﻿using BIMAIAnalyzer.Civil3D.Models.Wrappers;
 using System.Collections.Generic;
 
-namespace BIMAIAnalyzer.Models
+namespace BIMAIAnalyzer.Civil3D.Models
 {
     public class ElementCollection
     {

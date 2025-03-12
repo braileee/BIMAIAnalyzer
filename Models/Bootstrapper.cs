@@ -1,14 +1,9 @@
 ﻿using Autofac;
-using BIMAIAnalyzer.ViewModels;
-using BIMAIAnalyzer.Views;
+using BIMAIAnalyzer.Civil3D.ViewModels;
+using BIMAIAnalyzer.Civil3D.Views;
 using Prism.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BIMAIAnalyzer.Models
+namespace BIMAIAnalyzer.Civil3D.Models
 {
     public class Bootstrapper
     {
