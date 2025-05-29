@@ -32,9 +32,9 @@ namespace BIMAIAnalyzer.Civil3D.ViewModels
                 string elementJsonContent = JsonConvert.SerializeObject(elementCollection);
 
                 IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<Main>().Build();
-                string apiKey = config["apikey"];
+                string apiKey = config[Constants.ApiKeyName];
 
-                PromptMessage promptRequest = new PromptMessage(Constants.GeminiUrlFineTune, apiKey);
+                PromptMessage promptRequest = new PromptMessage(Constants.GeminiUrlMessage, apiKey);
                 string inputWithElementData = $"{Input}{Environment.NewLine}{elementJsonContent}";
                 ResponseMessage promptResponse = promptRequest.GetResponse(inputWithElementData);
 
@@ -42,20 +42,6 @@ namespace BIMAIAnalyzer.Civil3D.ViewModels
             }
             catch (Exception)
             {
-            }
-
-
-            Database database = Autodesk.AutoCAD.ApplicationServices.Core.Application.DocumentManager.MdiActiveDocument.Database;
-            using (Transaction trans = database.TransactionManager.StartTransaction())
-
-            {
-                CogoPointCollection cogoPoints = CivilApplication.ActiveDocument.CogoPoints;
-
-                ObjectId pointId = cogoPoints.Add(new Point3d(x: 1, y: 2, z: 3), useNextPointNumSetting: true);
-                CogoPoint cogoPoint = pointId.GetObject(OpenMode.ForWrite) as CogoPoint;
-                cogoPoint.PointName = "Survey_Base_Point";
-                cogoPoint.RawDescription = "This is Survey Base Point";
-                trans.Commit();
             }
         }
 

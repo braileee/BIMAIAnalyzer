@@ -8,7 +8,7 @@
 
 		<ComponentEntry AppName="BIMAIAnalyzer"
 						AppDescription="BIMAIAnalyzer"
-						ModuleName="./2025/Contents/BIMAIAnalyzer.dll"
+						ModuleName="./2025/Contents/BIMAIAnalyzer.Civil3D.dll"
 						LoadOnCommandInvocation ="True" LoadOnRequest="True">
 			
 			<Commands GroupName="PSV">

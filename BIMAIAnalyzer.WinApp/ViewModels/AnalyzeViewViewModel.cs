@@ -23,7 +23,7 @@ namespace BIMAIAnalyzer.WinApp.ViewModels
             try
             {
                 IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<MainViewViewModel>().Build();
-                string apiKey = config["apikey"];
+                string apiKey = config[Constants.ApiKeyName];
                 PromptMessage promptRequest = new PromptMessage(Constants.GeminiUrlMessage, apiKey);
                 ResponseMessage responseMessage = promptRequest.GetResponse(Input);
                 Output = responseMessage.Output;
